@@ -44,6 +44,15 @@ int main(int argc, char **argv)
 		} else if (strcmp(cmd, "pop") == 0)
 		{
 			pop(&stack, line_number);
+		} else if (strcmp(cmd, "swap") == 0)
+		{
+			swap(&stack, line_number);
+		} else if (strcmp(cmd, "add") == 0)
+		{
+			add(&stack, line_number);
+		} else if (strcmp(cmd, "nop") == 0)
+		{
+			nop(&stack, line_number);
 		}
 	}
 	free(line);
