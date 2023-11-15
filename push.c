@@ -6,17 +6,19 @@
  * @value: value to be added
  * Return: no return
 */
-void f_push(stack_t **stack,  unsigned int line_number, char *value)
-{
-	stack_t *new_node;
-	int number;
 
-	if (atoi(value) == 0 && strcmp(value, "0") != 0)
+void f_push(stack_t **stack, unsigned int line_number, const char *arg)
+{
+	int num;
+	stack_t *new_node;
+
+	if (arg == NULL)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	number = atoi(value);
+
+	num = atoi(arg);
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -25,10 +27,12 @@ void f_push(stack_t **stack,  unsigned int line_number, char *value)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = number;
+	new_node->n = num;
 	new_node->prev = NULL;
 	new_node->next = *stack;
-	if ((*stack) != NULL)
+	if (*stack != NULL)
+	{
 		(*stack)->prev = new_node;
+	}
 	*stack = new_node;
 }
