@@ -30,10 +30,10 @@ int main(int argc, char **argv)
 		cmd = strtok(line, " \t\n$");
 		if (cmd == NULL)
 			continue;
-		value = strtok(NULL, " \t\n$");
 		line_number++;
 		if (strcmp(cmd, "push") == 0)
 		{
+			value = strtok(NULL, " \t\n$");
 			if (value == NULL)
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -43,6 +43,9 @@ int main(int argc, char **argv)
 		} else if (strcmp(cmd, "pall") == 0)
 		{
 			f_pall(&stack, line_number);
+		} else if (strcmp(cmd, "pint") == 0)
+		{
+			f_pint(&stack, line_number);
 		}
 	}
 	free(line);
