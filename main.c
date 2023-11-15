@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 		{
 			f_pall(&stack, line_number);
 		} else if (strcmp(cmd, "pint") == 0)
-			pint(&stack, line_number);
+			f_pint(&stack, line_number);
 	}
 	free(line);
 	fclose(file);

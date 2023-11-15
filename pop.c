@@ -8,7 +8,7 @@
  *
  * Return: Void.
  */
-void pop(stack_t **stack, line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
@@ -21,5 +21,5 @@ void pop(stack_t **stack, line_number)
 	*stack = (*stack)->next;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
-	free(curent);
+	free(current);
 }
