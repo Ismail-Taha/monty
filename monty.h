@@ -42,13 +42,22 @@ typedef struct instruction_s
 /* Function Prototypes */
 void f_push(stack_t **stack, unsigned int line_number, char *arg);
 void f_pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
+void f_pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
-/* Any additional function prototypes */
+/* main entry point */
+int main(int argc, char **argv);
+
+/** dlinked lists function 
+stack_t *queue_add(stack_t **stack, const int n);
+stack_t *stack_add(stack_t **stack, const int n);
+size_t print_stack(const stack_t *stack);
+void free_stack(stack_t *stack);
+*/
+
 
 #endif /* MONTY_H */
 
