@@ -25,36 +25,18 @@ int main(int argc, char **argv)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
-	} while ((getline(&line, &len, file)) != -1)
+	} 
+	while ((getline(&line, &len, file)) != -1)
 	{
-		cmd = strtok(line, " \t\n$");
-		if (cmd == NULL)
-			continue;
 		line_number++;
-		if (strcmp(cmd, "push") == 0)
+		cmd = strtok(line, " \n");
+		value = strtok(NULL, " \n");
+		if (cmd != NULL)
 		{
-			value = strtok(NULL, " \t\n$");
-			f_push(&stack, line_number, value);
-		} else if (strcmp(cmd, "pall") == 0)
-		{
-			f_pall(&stack, line_number);
-		} else if (strcmp(cmd, "pint") == 0)
-		{
-			f_pint(&stack, line_number);
-		} else if (strcmp(cmd, "pop") == 0)
-		{
-			pop(&stack, line_number);
-		} else if (strcmp(cmd, "swap") == 0)
-		{
-			swap(&stack, line_number);
-		} else if (strcmp(cmd, "add") == 0)
-		{
-			add(&stack, line_number);
-		} else if (strcmp(cmd, "nop") == 0)
-		{
-			nop(&stack, line_number);
+			execute_opcode(cmd, &stack, line_number, value);
 		}
 	}
+
 	free(line);
 	fclose(file);
 	free_stack(stack);
