@@ -38,7 +38,6 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 /* Function Prototypes */
 void f_push(stack_t **stack, unsigned int line_number, char *arg);
 void f_pall(stack_t **stack, unsigned int line_number);
@@ -55,9 +54,8 @@ int main(int argc, char **argv);
 stack_t *queue_add(stack_t **stack, const int n);
 stack_t *stack_add(stack_t **stack, const int n);
 size_t print_stack(const stack_t *stack);
-void free_stack(stack_t *stack);
 */
-
+void free_stack(stack_t *stack);
 
 #endif /* MONTY_H */
 

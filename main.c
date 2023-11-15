@@ -27,10 +27,10 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	} while ((getline(&line, &len, file)) != -1)
 	{
-		cmd = strtok(line, " \n");
+		cmd = strtok(line, " \t\n$");
 		if (cmd == NULL)
 			continue;
-		value = strtok(NULL, " \n");
+		value = strtok(NULL, " \t\n$");
 		line_number++;
 		if (strcmp(cmd, "push") == 0)
 		{
@@ -43,10 +43,10 @@ int main(int argc, char **argv)
 		} else if (strcmp(cmd, "pall") == 0)
 		{
 			f_pall(&stack, line_number);
-		} else if (strcmp(cmd, "pint") == 0)
-			f_pint(&stack, line_number);
+		}
 	}
 	free(line);
 	fclose(file);
+	free_stack(stack);
 	return (0);
 }
