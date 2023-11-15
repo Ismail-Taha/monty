@@ -34,11 +34,6 @@ int main(int argc, char **argv)
 		if (strcmp(cmd, "push") == 0)
 		{
 			value = strtok(NULL, " \t\n$");
-			if (value == NULL)
-			{
-				fprintf(stderr, "L%u: usage: push integer\n", line_number);
-				exit(EXIT_FAILURE);
-			}
 			f_push(&stack, line_number, value);
 		} else if (strcmp(cmd, "pall") == 0)
 		{
