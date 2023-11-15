@@ -7,18 +7,18 @@
  * Return: no return
 */
 
-void f_push(stack_t **stack, unsigned int line_number, const char *arg)
+void f_push(stack_t **stack, unsigned int line_number, const char *value)
 {
 	int num;
 	stack_t *new_node;
 
-	if (arg == NULL)
+	if (value == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	num = atoi(arg);
+	num = atoi(value);
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
