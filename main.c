@@ -41,6 +41,9 @@ int main(int argc, char **argv)
 		} else if (strcmp(cmd, "pint") == 0)
 		{
 			f_pint(&stack, line_number);
+		} else if (strcmp(cmd, "pop") == 0)
+		{
+			pop(&stack, line_number);
 		}
 	}
 	free(line);
