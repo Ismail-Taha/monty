@@ -1,8 +1,18 @@
 #include "monty.h"
 
-void execute_opcode(char *cmd, stack_t **stack, unsigned int line_number, char *value)
+/**
+ * execute_opcode - Executes the corresponding Monty opcode.
+ * @cmd: Monty opcode to be executed.
+ * @stack: Double pointer to the head of the stack.
+ * @line_number: Line number in the Monty bytecode file.
+ * @value: Value (for "push" instruction).
+ * Return: Void.
+ */
+void execute_opcode(char *cmd, stack_t **stack,
+	unsigned int line_number, char *value)
 {
-	if (strcmp(cmd, "push") == 0) {
+	if (strcmp(cmd, "push") == 0)
+	{
 		f_push(stack, line_number, value);
 	} else if (strcmp(cmd, "pall") == 0)
 	{
@@ -22,7 +32,8 @@ void execute_opcode(char *cmd, stack_t **stack, unsigned int line_number, char *
 	} else if (strcmp(cmd, "nop") == 0)
 	{
 		nop(stack, line_number);
-	} else {
+	} else
+	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 		exit(EXIT_FAILURE);
 	}
