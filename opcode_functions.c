@@ -12,7 +12,6 @@ void execute_opcode(char *cmd, stack_t **stack,
 	unsigned int line_number, char *value)
 {
 	strip_extra_characters(cmd);
-
 	if (strcmp(cmd, "push") == 0)
 	{
 		f_push(stack, line_number, value);
@@ -41,12 +40,12 @@ void execute_opcode(char *cmd, stack_t **stack,
 	{
 		f_div(stack, line_number);
 	} else if (strcmp(cmd, "mul") == 0)
-	{
 		f_mul(stack, line_number);
-	} else if (strcmp(cmd, "mod") == 0)
-	{
+	else if (strcmp(cmd, "mod") == 0)
 		f_mod(stack, line_number);
-	} else
+	else if (strcmp(cmd, "pchar") == 0)
+		f_pchar(stack, line_number);
+	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 		exit(EXIT_FAILURE);
