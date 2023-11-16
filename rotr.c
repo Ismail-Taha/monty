@@ -1,12 +1,13 @@
 #include "monty.h"
+
 /**
- * f_rotl - Rotates the stack to the top.
+ * f_rotr - Rotates the stack to the bottom.
  * @stack: Double pointer to the head of the stack.
  * @line_number: Line number in the script where this opcode appears.
  *
  * Return: void.
  */
-void f_rotl(stack_t **stack, unsigned int line_number)
+void f_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *bottom;
 	(void) line_number;
@@ -20,9 +21,9 @@ void f_rotl(stack_t **stack, unsigned int line_number)
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 
-	*stack = top->next;
-	(*stack)->prev = NULL;
+	bottom->prev->next = NULL;
+	bottom->prev = NULL;
 	bottom->next = top;
 	top->prev = bottom;
-	top->next = NULL;
+	*stack = bottom;
 }

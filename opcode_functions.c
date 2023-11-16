@@ -44,6 +44,8 @@ void execute_opcode(char *cmd, stack_t **stack,
 		f_pstr(stack, line_number);
 	else if (strcmp(cmd, "rotl") == 0)
 		f_rotl(stack, line_number);
+	else if (strcmp(cmd, "rotr") == 0)
+		f_rotr(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
