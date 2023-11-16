@@ -25,15 +25,12 @@ void execute_opcode(char *cmd, stack_t **stack,
 	{
 		f_pop(stack, line_number);
 	} else if (strcmp(cmd, "swap") == 0)
-	{
 		f_swap(stack, line_number);
-	} else if (strcmp(cmd, "add") == 0)
-	{
+	else if (strcmp(cmd, "add") == 0)
 		f_add(stack, line_number);
-	} else if (strcmp(cmd, "nop") == 0)
-	{
+	else if (strcmp(cmd, "nop") == 0)
 		f_nop(stack, line_number);
-	} else if (strcmp(cmd, "sub") == 0)
+	else if (strcmp(cmd, "sub") == 0)
 		f_sub(stack, line_number);
 	else if (strcmp(cmd, "div") == 0)
 		f_div(stack, line_number);
@@ -45,6 +42,8 @@ void execute_opcode(char *cmd, stack_t **stack,
 		f_pchar(stack, line_number);
 	else if (strcmp(cmd, "pstr") == 0)
 		f_pstr(stack, line_number);
+	else if (strcmp(cmd, "rotl") == 0)
+		f_rotl(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
