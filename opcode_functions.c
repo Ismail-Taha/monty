@@ -34,17 +34,17 @@ void execute_opcode(char *cmd, stack_t **stack,
 	{
 		f_nop(stack, line_number);
 	} else if (strcmp(cmd, "sub") == 0)
-	{
 		f_sub(stack, line_number);
-	} else if (strcmp(cmd, "div") == 0)
-	{
+	else if (strcmp(cmd, "div") == 0)
 		f_div(stack, line_number);
-	} else if (strcmp(cmd, "mul") == 0)
+	else if (strcmp(cmd, "mul") == 0)
 		f_mul(stack, line_number);
 	else if (strcmp(cmd, "mod") == 0)
 		f_mod(stack, line_number);
 	else if (strcmp(cmd, "pchar") == 0)
 		f_pchar(stack, line_number);
+	else if (strcmp(cmd, "pstr") == 0)
+		f_pstr(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
