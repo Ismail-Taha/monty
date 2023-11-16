@@ -30,9 +30,9 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		cmd = strtok(line, " \n");
-		value = strtok(NULL, " \n");
-		if (cmd != NULL)
+		if (cmd != NULL && cmd[0] != '#')
 		{
+			value = strtok(NULL, " \n");
 			execute_opcode(cmd, &stack, line_number, value);
 		}
 	}

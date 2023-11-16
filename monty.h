@@ -38,6 +38,32 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * mode_e - Enumeration for stack modes.
+ * @MODE_STACK: Stack mode.
+ * @MODE_QUEUE: Queue mode.
+ *
+ * Description: Enumerates the different modes for handling a stack.
+ */
+typedef enum monty_mode_e
+{
+	MODE_STACK,
+	MODE_QUEUE
+} monty_mode_t;
+
+/**
+ * global_structure - Global structure for maintaining stack modes and other variables.
+ * @mode: Current stack mode (MODE_STACK or MODE_QUEUE).
+ *
+ * Description: Defines a global structure to hold variables that need to be accessed across functions.
+ * The primary purpose is to store the current stack mode.
+ */
+typedef struct global_structure
+{
+	mode_t mode;
+} global_structure;
+
+global_structure global;
 /* Function Prototypes */
 void f_push(stack_t **stack, unsigned int line_number, const char *value);
 void f_pall(stack_t **stack, unsigned int line_number);
@@ -50,10 +76,17 @@ void f_sub(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void f_mul(stack_t **stack, unsigned int line_number);
 void f_mod(stack_t **stack, unsigned int line_number);
+void f_pchar(stack_t **stack, unsigned int line_number);
+void f_pstr(stack_t **stack, unsigned int line_number);
+void f_rotl(stack_t **stack, unsigned int line_number);
+void f_rotr(stack_t **stack, unsigned int line_number);
+void f_stack(stack_t **stack, unsigned int line_number);
+void f_queue(stack_t **stack, unsigned int line_number);
 /* main entry point */
 int main(int argc, char **argv);
 
 void execute_opcode(char *cmd, stack_t **stack, unsigned int line_number, char *value);
+void strip_extra_characters(char *str);
 
 /** dlinked lists function 
 stack_t *queue_add(stack_t **stack, const int n);
