@@ -13,18 +13,14 @@ void execute_opcode(char *cmd, stack_t **stack,
 {
 	strip_extra_characters(cmd);
 	if (strcmp(cmd, "push") == 0)
-	{
 		f_push(stack, line_number, value);
-	} else if (strcmp(cmd, "pall") == 0)
-	{
+	else if (strcmp(cmd, "pall") == 0)
 		f_pall(stack, line_number);
-	} else if (strcmp(cmd, "pint") == 0)
-	{
+	else if (strcmp(cmd, "pint") == 0)
 		f_pint(stack, line_number);
-	} else if (strcmp(cmd, "pop") == 0)
-	{
+	else if (strcmp(cmd, "pop") == 0)
 		f_pop(stack, line_number);
-	} else if (strcmp(cmd, "swap") == 0)
+	else if (strcmp(cmd, "swap") == 0)
 		f_swap(stack, line_number);
 	else if (strcmp(cmd, "add") == 0)
 		f_add(stack, line_number);
@@ -46,7 +42,15 @@ void execute_opcode(char *cmd, stack_t **stack,
 		f_rotl(stack, line_number);
 	else if (strcmp(cmd, "rotr") == 0)
 		f_rotr(stack, line_number);
-	else
+	else if (!strcmp(cmd, "stack"))
+	{
+		global.mode = MODE_STACK;
+		return;
+	} else if (!strcmp(cmd, "queue"))
+	{
+		global.mode = MODE_QUEUE;
+		return;
+	} else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 		exit(EXIT_FAILURE);
