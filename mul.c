@@ -6,7 +6,7 @@
  *
  * Return: Void.
  */
-void mul(stack_t **stack, unsigned int line_number)
+void f_mul(stack_t **stack, unsigned int line_number)
 {
 	int product;
 	stack_t *temp;
