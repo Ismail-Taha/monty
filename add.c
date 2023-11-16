@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * add - add 2 nodes
+ * f_add - add 2 nodes
  * @stack: Double pointer to the head of the stack.
  * @line_number: Line number in the Monty bytecode file.
  *
  * Return: Void.
  */
-void add(stack_t **stack, unsigned int line_number)
+void f_add(stack_t **stack, unsigned int line_number)
 {
 
 	int sum = 0;

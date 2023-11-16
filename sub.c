@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * sub - sub 2 nodes
+ * f_sub - sub 2 nodes
  * @stack: Double pointer to the head of the stack.
  * @line_number: Line number in the Monty bytecode file.
  *
  * Return: Void.
  */
-void sub(stack_t **stack, unsigned int line_number)
+void f_sub(stack_t **stack, unsigned int line_number)
 {
 
 	int sub = 0;
@@ -20,7 +20,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sum = (*stack)->n - (*stack)->next->n;
+	sub = (*stack)->next->n - (*stack)->n;
 
 	(*stack) = (*stack)->next;
 	(*stack)->n = sub;

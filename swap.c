@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * swap - prints the stack
+ * f_swap - prints the stack
  * @stack: stack head
  * @line_number: no used
  * Return: no return
 */
 
-void swap(stack_t **stack, unsigned int line_number)
+void f_swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
 

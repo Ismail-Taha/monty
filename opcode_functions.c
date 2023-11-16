@@ -22,19 +22,22 @@ void execute_opcode(char *cmd, stack_t **stack,
 		f_pint(stack, line_number);
 	} else if (strcmp(cmd, "pop") == 0)
 	{
-		pop(stack, line_number);
+		f_pop(stack, line_number);
 	} else if (strcmp(cmd, "swap") == 0)
 	{
-		swap(stack, line_number);
+		f_swap(stack, line_number);
 	} else if (strcmp(cmd, "add") == 0)
 	{
-		add(stack, line_number);
+		f_add(stack, line_number);
 	} else if (strcmp(cmd, "nop") == 0)
 	{
-		nop(stack, line_number);
+		f_nop(stack, line_number);
 	} else if (strcmp(cmd, "sub") == 0)
 	{
-		sub(stack, line_number);
+		f_sub(stack, line_number);
+	} else if (strcmp(cmd, "div") == 0)
+	{
+		f_div(stack, line_number);
 	} else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
