@@ -62,6 +62,7 @@ void execute_opcode(char *cmd, stack_t **stack,
 void strip_extra_characters(char *str)
 {
 	int i, j = 0;
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (isalnum((unsigned char)str[i]))
