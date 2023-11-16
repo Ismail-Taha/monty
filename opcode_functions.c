@@ -11,6 +11,8 @@
 void execute_opcode(char *cmd, stack_t **stack,
 	unsigned int line_number, char *value)
 {
+	strip_extra_characters(cmd);
+
 	if (strcmp(cmd, "push") == 0)
 	{
 		f_push(stack, line_number, value);
@@ -51,3 +53,21 @@ void execute_opcode(char *cmd, stack_t **stack,
 	}
 }
 
+/**
+ * strip_extra_characters - Removes non-alphanumeric characters from a string.
+ * @str: Input string to be processed and modified.
+ *
+ * Return: Void.
+ */
+void strip_extra_characters(char *str)
+{
+	int i, j = 0;
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (isalnum((unsigned char)str[i]))
+		{
+			str[j++] = str[i];
+		}
+	}
+	str[j] = '\0';
+}

@@ -54,6 +54,7 @@ void f_mod(stack_t **stack, unsigned int line_number);
 int main(int argc, char **argv);
 
 void execute_opcode(char *cmd, stack_t **stack, unsigned int line_number, char *value);
+void strip_extra_characters(char *str);
 
 /** dlinked lists function 
 stack_t *queue_add(stack_t **stack, const int n);
