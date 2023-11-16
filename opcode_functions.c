@@ -39,7 +39,7 @@ void execute_opcode(char *cmd, stack_t **stack,
 	{
 		f_div(stack, line_number);
 	} else if (strcmp(cmd, "mul") == 0)
-        {
+	{
 		f_mul(stack, line_number);
 	} else
 	{
