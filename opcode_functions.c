@@ -41,6 +41,9 @@ void execute_opcode(char *cmd, stack_t **stack,
 	} else if (strcmp(cmd, "mul") == 0)
         {
 		f_mul(stack, line_number);
+	} else if (strcmp(cmd, "mod") == 0)
+	{
+		f_mod(stack, line_number);
 	} else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
