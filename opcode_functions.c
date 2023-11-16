@@ -32,6 +32,9 @@ void execute_opcode(char *cmd, stack_t **stack,
 	} else if (strcmp(cmd, "nop") == 0)
 	{
 		nop(stack, line_number);
+	} else if (strcmp(cmd, "sub") == 0)
+	{
+		sub(stack, line_number);
 	} else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
